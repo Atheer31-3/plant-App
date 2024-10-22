@@ -25,16 +25,19 @@ struct HomeView: View {
                 .font(.system(size: 34, weight: .bold))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal)
+        
             Divider()
+                .background(Color.white)
         }
         
             if plants.isEmpty {
                 if isFirstTime {
                     VStack(spacing: 20) {
                         
-                        Image("plantImage")                                .resizable()
+                        Image("plantImage")
+                            .resizable()
                             .scaledToFit()
-                            .frame(width: 150, height: 150)
+                            .frame(width: 200, height: 200)
                         
                         Text("Start your plant journey!")
                             .font(.title2)
@@ -51,31 +54,34 @@ struct HomeView: View {
                             isFirstTime = false
                         }) {
                             Text("Set Plant Reminder")
-                                .fontWeight(.bold)
+                                .font(.system(size: 14, weight: .medium))
                                 .padding(10)
                                 .frame(maxWidth: .infinity)
-                                .background(Color.green)
-                                .foregroundColor(.white)
+                                .background(Color.c1)
+                                .foregroundColor(.black)
                                 .cornerRadius(10)
-                            .padding(.horizontal, 60)                            }
+                            .padding(.horizontal, 60)
+                        }
                     }
                     .padding(.top, 50)
                 } else {
-                    VStack {
-                        
+                    VStack(spacing: 20)  {
                         Image("plantImage2")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 150, height: 150)
+                            .frame(width: 200, height: 150)
                         Text("All Done! 🎉")
-                            .font(.title)
-                            .padding()
+                            .font(.title2)
+                            .fontWeight(.bold)
+                        
                         Text("All Reminders Completed")
                             .font(.subheadline)
-                            .padding()
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.gray)
+                            .padding(.horizontal, 40)
                     }
                 }
-            } else {
+            }else {
                 // عرض قائمة النباتات
                 List {
                     ForEach(sortedPlants()) { plant in
@@ -85,9 +91,13 @@ struct HomeView: View {
                                 selectedPlant = plant
                                 showReminderForm = true
                             }
-                    }
-                    .onDelete { indexSet in
-                        plants.remove(atOffsets: indexSet)
+                            .swipeActions(edge: .trailing) {
+                                Button(role: .destructive) {
+                                    deletePlant(plant)
+                                } label: {
+                                    Image(systemName: "trash")
+                                }
+                            }
                     }
                 }
             }
@@ -99,10 +109,10 @@ struct HomeView: View {
                 showReminderForm = true }) {
                     HStack {
                         Image(systemName: "plus.circle.fill")
-                            .foregroundColor(Color.green)
+                            .foregroundColor(Color.c1)
                         Text("New Reminder")
-                            .foregroundColor(Color.green)
-                        
+                            .foregroundColor(Color.c1)
+                        Spacer()
                     }
                     .padding()
                 }
@@ -118,7 +128,6 @@ struct HomeView: View {
     }
 
  
-    // ترتيب النباتات لإظهار غير المكتملة في الأعلى
     private func sortedPlants() -> [Plant] {
         return plants.sorted { !$0.isWatered && $1.isWatered }
     }
@@ -130,6 +139,12 @@ struct HomeView: View {
             plants = sortedPlants() // تحديث القائمة
         }
     }
+    // حذف النبات من القائمة
+      private func deletePlant(_ plant: Plant) {
+          if let index = plants.firstIndex(where: { $0.id == plant.id }) {
+              plants.remove(at: index)
+          }
+      }
 }
 // هذي كلاس جديد تابع للترتيب لازم اعدل عليها بالتنسيق
 
@@ -139,30 +154,29 @@ struct PlantRow: View {
 
     var body: some View {
         HStack {
-            // زر تحديد الري
             Button(action: {
                 toggleWatered(plant)
             }) {
                 Image(systemName: plant.isWatered ? "checkmark.circle.fill" : "circle")
-                    .foregroundColor(plant.isWatered ? .green : .gray)
+                    .foregroundColor(plant.isWatered ? .c1 : .gray)
             }
 
             VStack(alignment: .leading) {
                 Text("in \(plant.room)")
+                
                     .font(.subheadline)
                     .foregroundColor(.gray)
                 Text(plant.name)
                     .font(.headline)
        
-                // تعديل الألوان والعناصر
                 HStack {
-                    Label("Full sun", systemImage: "sun.max.fill")
+                    Label("Full sun", systemImage: "sun.max")
                         .font(.system(size: 14, weight: .light))
                         .padding(3)
                         .foregroundColor(Color.yellow)
                         .background(Color.gray.opacity(0.2))
                         .cornerRadius(8)
-                    Label("20-50 ml", systemImage: "drop.fill")
+                    Label("20-50 ml", systemImage: "drop")
                         .font(.system(size: 14, weight: .light))
                         .padding(3)
                         .foregroundColor(Color.blue)
