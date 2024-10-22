@@ -26,7 +26,7 @@ struct HomeView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal)
         
-            Divider()
+           Divider()
                 .background(Color.white)
         }
         
