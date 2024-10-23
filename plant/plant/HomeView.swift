@@ -10,7 +10,6 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var plants: [Plant] = []
-    
     @State private var showReminderForm = false
     @State private var selectedPlant: Plant?
     @State private var isFirstTime = true
@@ -20,16 +19,16 @@ struct HomeView: View {
         //  NavigationView {
         VStack{
             
-        VStack {
-            Text("My Plants 🌱")
-                .font(.system(size: 34, weight: .bold))
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal)
-        
-           Divider()
-                .background(Color.white)
-        }
-        
+            VStack {
+                Text("My Plants 🌱")
+                    .font(.system(size: 34, weight: .bold))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal)
+                
+                Divider()
+                    .background(Color.white)
+            }
+            
             if plants.isEmpty {
                 if isFirstTime {
                     VStack(spacing: 20) {
@@ -60,7 +59,7 @@ struct HomeView: View {
                                 .background(Color.c1)
                                 .foregroundColor(.black)
                                 .cornerRadius(10)
-                            .padding(.horizontal, 60)
+                                .padding(.horizontal, 60)
                         }
                     }
                     .padding(.top, 50)
@@ -101,33 +100,31 @@ struct HomeView: View {
                     }
                 }
             }
-            
             Spacer()
-            // هذي لازم اشوف وضعها انها تطلع بعدين مو بالبدايه
-            // زر لإضافة تذكير جديد
-            Button(action: {
-                showReminderForm = true }) {
-                    HStack {
-                        Image(systemName: "plus.circle.fill")
-                            .foregroundColor(Color.c1)
-                        Text("New Reminder")
-                            .foregroundColor(Color.c1)
-                        Spacer()
-                    }
-                    .padding()
-                }
-                .sheet(isPresented: $showReminderForm) {
-                    SetReminderView(plants: $plants, plantToEdit: selectedPlant)
-                        .onDisappear {
-                            selectedPlant = nil
+            
+            if !plants.isEmpty || !isFirstTime {
+                Button(action: {
+                    showReminderForm = true }) {
+                        HStack {
+                            Image(systemName: "plus.circle.fill")
+                                .foregroundColor(Color.c1)
+                            Text("New Reminder")
+                                .foregroundColor(Color.c1)
+                            Spacer()
                         }
-                }
+                        .padding()
+                    }
+                    .sheet(isPresented: $showReminderForm) {
+                        SetReminderView(plants: $plants, plantToEdit: selectedPlant)
+                            .onDisappear {
+                                selectedPlant = nil
+                            }
+                    }
+            }
         }
-
     //}
     }
-
- 
+    
     private func sortedPlants() -> [Plant] {
         return plants.sorted { !$0.isWatered && $1.isWatered }
     }
@@ -162,8 +159,7 @@ struct PlantRow: View {
             }
 
             VStack(alignment: .leading) {
-                Text("in \(plant.room)")
-                
+                Text(" \(plant.room)")
                     .font(.subheadline)
                     .foregroundColor(.gray)
                 Text(plant.name)
@@ -185,6 +181,7 @@ struct PlantRow: View {
                 }
             }
             Spacer()
+           // Divider
         }
     }
 }

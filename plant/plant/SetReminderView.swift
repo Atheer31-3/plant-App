@@ -21,19 +21,17 @@ struct SetReminderView: View {
         NavigationView {
             Form {
                 Section {
-                  HStack(spacing: 10) {
+                  HStack {
                     Text("Plant Name")
                     .foregroundColor(.white)
                     TextField("Pothos", text: $name)
                     .foregroundColor(.white)
                     .tint(.c1)
-                      
              }
            }
-          .padding(.vertical, 6.5)
                 
                 Section {
-                    HStack(spacing: 10){
+                    HStack{
                         Image(systemName: "location")
                             .foregroundColor(.white)
                         Picker("Room", selection: $room) {
@@ -44,9 +42,8 @@ struct SetReminderView: View {
                             Text("Bathroom").tag("Bathroom")
                         }
                     }
-                   // .padding(.vertical, 5)
                     
-                    HStack(spacing: 10) {
+                    HStack {
                         Image(systemName: "sun.max")
                             .foregroundColor(.white)
                         Picker("Light", selection: $sunlight) {
@@ -57,10 +54,10 @@ struct SetReminderView: View {
                     }
                     //.padding(.vertical, 6)
                 }
-                .padding(.vertical, 6.5)
+               // .padding(.vertical, 6.5)
                 
                 Section {
-                    HStack(spacing: 10) {
+                    HStack {
                         Image(systemName: "drop")
                             .foregroundColor(.white)
                         Picker("Watering Days", selection: $wateringDays) {
@@ -72,8 +69,8 @@ struct SetReminderView: View {
                             Text("Every 2 weeks").tag("Every 2 weeks")
                         }
                     }
-                    .padding(.vertical, 6)
-                    HStack(spacing: 10) {
+                  //  .padding(.vertical, 6)
+                    HStack {
                         Image(systemName: "drop")
                             .foregroundColor(.white)
                         Picker("Water Amount", selection: $waterAmount) {
@@ -83,9 +80,7 @@ struct SetReminderView: View {
                             Text("200-300 ml").tag("200-300 ml")
                         }
                     }
-                    .padding(.vertical, 6)
                 }
-               // .padding(.vertical, 8)
                 
                 if plantToEdit != nil {
                     Section {
