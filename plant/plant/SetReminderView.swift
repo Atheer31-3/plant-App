@@ -102,12 +102,12 @@ struct SetReminderView: View {
                 leading: Button("Cancel") {
                     presentationMode.wrappedValue.dismiss()
                 }
-                    .foregroundColor(Color.green),
+                    .foregroundColor(Color.c1),
 
                 trailing: Button("Save") {
                     savePlant()
                 }
-                    .foregroundColor(Color.green)
+                    .foregroundColor(Color.c1)
             )
             .onAppear {
                 if let plant = plantToEdit {

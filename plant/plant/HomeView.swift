@@ -16,8 +16,7 @@ struct HomeView: View {
     
 
     var body: some View {
-        //  NavigationView {
-        VStack{
+        VStack {
             
             VStack {
                 Text("My Plants 🌱")
@@ -29,6 +28,17 @@ struct HomeView: View {
                     .background(Color.white)
             }
             
+            if !plants.isEmpty {
+                VStack(alignment: .leading) {
+                    Text("Today")
+                        .font(.system(size: 28, weight: .bold))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading)
+
+                    Spacer().frame(height: 10)
+                }
+            }
+
             if plants.isEmpty {
                 if isFirstTime {
                     VStack(spacing: 20) {
@@ -80,28 +90,36 @@ struct HomeView: View {
                             .padding(.horizontal, 40)
                     }
                 }
-            }else {
-                // عرض قائمة النباتات
+            }  else {
                 List {
                     ForEach(sortedPlants()) { plant in
-                        PlantRow(plant: plant, toggleWatered: toggleWatered)
-                            .contentShape(Rectangle()) // لجعل الصف كله قابل للنقر
-                            .onTapGesture {
-                                selectedPlant = plant
-                                showReminderForm = true
+                        VStack {
+                            PlantRow(plant: plant, toggleWatered: toggleWatered)
+                                .padding(.vertical, 10)
+                                .padding(.horizontal)
+                            Divider()
+                        }
+                        .listRowInsets(EdgeInsets())
+                        .listRowBackground(Color.clear)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            selectedPlant = plant
+                            showReminderForm = true
+                        }
+                        .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                            Button(role: .destructive) {
+                                deletePlant(plant)
+                            } label: {
+                                Image(systemName: "trash")
                             }
-                            .swipeActions(edge: .trailing) {
-                                Button(role: .destructive) {
-                                    deletePlant(plant)
-                                } label: {
-                                    Image(systemName: "trash")
-                                }
-                            }
+                        }
                     }
                 }
+                .listStyle(PlainListStyle())
             }
-            Spacer()
             
+            Spacer()
+
             if !plants.isEmpty || !isFirstTime {
                 Button(action: {
                     showReminderForm = true }) {
@@ -122,70 +140,78 @@ struct HomeView: View {
                     }
             }
         }
-    //}
     }
-    
+
     private func sortedPlants() -> [Plant] {
         return plants.sorted { !$0.isWatered && $1.isWatered }
     }
 
-    // تغيير حالة الري
     private func toggleWatered(_ plant: Plant) {
         if let index = plants.firstIndex(where: { $0.id == plant.id }) {
             plants[index].isWatered.toggle()
-            plants = sortedPlants() // تحديث القائمة
+            plants = sortedPlants()
         }
     }
-    // حذف النبات من القائمة
-      private func deletePlant(_ plant: Plant) {
-          if let index = plants.firstIndex(where: { $0.id == plant.id }) {
-              plants.remove(at: index)
-          }
-      }
+    
+    private func deletePlant(_ plant: Plant) {
+        if let index = plants.firstIndex(where: { $0.id == plant.id }) {
+            plants.remove(at: index)
+        }
+    }
 }
+
 // هذي كلاس جديد تابع للترتيب لازم اعدل عليها بالتنسيق
 
 struct PlantRow: View {
     var plant: Plant
     var toggleWatered: (Plant) -> Void
-
+    
     var body: some View {
         HStack {
             Button(action: {
                 toggleWatered(plant)
             }) {
                 Image(systemName: plant.isWatered ? "checkmark.circle.fill" : "circle")
+                    .resizable()
+                    .frame(width: 20, height: 20)
                     .foregroundColor(plant.isWatered ? .c1 : .gray)
-            }
 
+            }
+            .buttonStyle(PlainButtonStyle())
             VStack(alignment: .leading) {
-                Text(" \(plant.room)")
-                    .font(.subheadline)
+                HStack{
+                    Image(systemName: "location")
+                        .foregroundColor(.gray)
+                        
+                    Text("in \(plant.room)")
+                      //  .font(.subheadline)
                     .foregroundColor(.gray)
+                    .font(.system(size: 15, weight: .light))
+                      }
+                // هنا لازم اعدل يروح يمين شوي 
                 Text(plant.name)
-                    .font(.headline)
-       
+                    .font(.system(size: 28, weight: .bold))
+                
                 HStack {
-                    Label("Full sun", systemImage: "sun.max")
+                    Label(plant.sunlight, systemImage: "sun.max")
                         .font(.system(size: 14, weight: .light))
-                        .padding(3)
-                        .foregroundColor(Color.yellow)
+                        .padding(4)
+                        .foregroundColor(Color.c3)
                         .background(Color.gray.opacity(0.2))
-                        .cornerRadius(8)
-                    Label("20-50 ml", systemImage: "drop")
+                        .cornerRadius(9)
+                    Label(plant.waterAmount, systemImage: "drop")
                         .font(.system(size: 14, weight: .light))
-                        .padding(3)
-                        .foregroundColor(Color.blue)
+                        .padding(4)
+                        .foregroundColor(Color.c4)
                         .background(Color.gray.opacity(0.2))
-                        .cornerRadius(8)
+                        .cornerRadius(9)
                 }
             }
             Spacer()
-           // Divider
+
         }
     }
 }
-
 #Preview {
     HomeView()
 }
