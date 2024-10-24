@@ -11,7 +11,6 @@ struct SetReminderView: View {
     @Binding var plants: [Plant]
     @State private var name = ""
     @State private var room = "Bedroom"
-   // @State private var sunlight = "Full Sun"
     @State private var sunlight: SunlightType = .fullSun
     @State private var wateringDays = "Every day"
     @State private var waterAmount = "20-50 ml"
@@ -58,35 +57,6 @@ struct SetReminderView: View {
                         }
                     }
                 }
-                
-                
-                //                    HStack {
-                //                        Image(systemName: "sun.max")
-                //                            .foregroundColor(.white)
-                //                        Picker("Light", selection: $sunlight) {
-                //                            HStack {
-                //                                Text("Full Sun")
-                //                                Image(systemName: "sun.max")
-                //
-                //                            }
-                //                            .tag("Full Sun")
-                //
-                //                            HStack {
-                //                                Text("Partial Sun")
-                //                                Image(systemName: "sun.haze")
-                //
-                //                            }
-                //                            .tag("Partial Sun")
-                //
-                //                            HStack {
-                //                                Text("Low Light")
-                //                                Image(systemName: "moon")
-                //
-                //                            }
-                //                            .tag("Low Light")
-                //                        }
-                //                    }
-                
                 
                 Section {
                     HStack {
