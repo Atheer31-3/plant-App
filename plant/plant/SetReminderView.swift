@@ -11,7 +11,8 @@ struct SetReminderView: View {
     @Binding var plants: [Plant]
     @State private var name = ""
     @State private var room = "Bedroom"
-    @State private var sunlight = "Full Sun"
+   // @State private var sunlight = "Full Sun"
+    @State private var sunlight: SunlightType = .fullSun
     @State private var wateringDays = "Every day"
     @State private var waterAmount = "20-50 ml"
     @Environment(\.presentationMode) var presentationMode
@@ -21,14 +22,14 @@ struct SetReminderView: View {
         NavigationView {
             Form {
                 Section {
-                  HStack {
-                    Text("Plant Name")
-                    .foregroundColor(.white)
-                    TextField("Pothos", text: $name)
-                    .foregroundColor(.white)
-                    .tint(.c1)
-             }
-           }
+                    HStack {
+                        Text("Plant Name")
+                            .foregroundColor(.white)
+                        TextField("Pothos", text: $name)
+                            .foregroundColor(.white)
+                            .tint(.c1)
+                    }
+                }
                 
                 Section {
                     HStack{
@@ -44,17 +45,48 @@ struct SetReminderView: View {
                     }
                     
                     HStack {
-                        Image(systemName: "sun.max")
+                        Image(systemName: sunlight.icon())
                             .foregroundColor(.white)
+                        
                         Picker("Light", selection: $sunlight) {
-                            Text("Full Sun").tag("Full Sun")
-                            Text("Partial Sun").tag("Partial Sun")
-                            Text("Low Light").tag("Low Light")
+                            ForEach(SunlightType.allCases, id: \.self) { type in
+                                HStack {
+                                    Text(type.rawValue)
+                                    Image(systemName: type.icon())
+                                }.tag(type)
+                            }
                         }
                     }
-                    //.padding(.vertical, 6)
                 }
-               // .padding(.vertical, 6.5)
+                
+                
+                //                    HStack {
+                //                        Image(systemName: "sun.max")
+                //                            .foregroundColor(.white)
+                //                        Picker("Light", selection: $sunlight) {
+                //                            HStack {
+                //                                Text("Full Sun")
+                //                                Image(systemName: "sun.max")
+                //
+                //                            }
+                //                            .tag("Full Sun")
+                //
+                //                            HStack {
+                //                                Text("Partial Sun")
+                //                                Image(systemName: "sun.haze")
+                //
+                //                            }
+                //                            .tag("Partial Sun")
+                //
+                //                            HStack {
+                //                                Text("Low Light")
+                //                                Image(systemName: "moon")
+                //
+                //                            }
+                //                            .tag("Low Light")
+                //                        }
+                //                    }
+                
                 
                 Section {
                     HStack {
@@ -69,7 +101,9 @@ struct SetReminderView: View {
                             Text("Every 2 weeks").tag("Every 2 weeks")
                         }
                     }
-                  //  .padding(.vertical, 6)
+                    
+                    //   .padding(.vertical, 6)
+                    
                     HStack {
                         Image(systemName: "drop")
                             .foregroundColor(.white)
@@ -103,7 +137,7 @@ struct SetReminderView: View {
                     presentationMode.wrappedValue.dismiss()
                 }
                     .foregroundColor(Color.c1),
-
+                
                 trailing: Button("Save") {
                     savePlant()
                 }
@@ -120,7 +154,7 @@ struct SetReminderView: View {
             }
         }
     }
-
+    
     private func savePlant() {
         if let plant = plantToEdit {
             if let index = plants.firstIndex(where: { $0.id == plant.id }) {

@@ -13,7 +13,6 @@ struct HomeView: View {
     @State private var showReminderForm = false
     @State private var selectedPlant: Plant?
     @State private var isFirstTime = true
-    
 
     var body: some View {
         VStack {
@@ -46,7 +45,7 @@ struct HomeView: View {
                         Image("plantImage")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 200, height: 200)
+                            .frame(width: 200, height: 150)
                         
                         Text("Start your plant journey!")
                             .font(.title2)
@@ -74,7 +73,8 @@ struct HomeView: View {
                     }
                     .padding(.top, 50)
                 } else {
-                    VStack(spacing: 20)  {
+                    VStack(spacing: 15)  {
+                        Spacer()
                         Image("plantImage2")
                             .resizable()
                             .scaledToFit()
@@ -88,8 +88,11 @@ struct HomeView: View {
                             .multilineTextAlignment(.center)
                             .foregroundColor(.gray)
                             .padding(.horizontal, 40)
+                        
+                        Spacer()
                     }
                 }
+                
             }  else {
                 List {
                     ForEach(sortedPlants()) { plant in
@@ -160,58 +163,65 @@ struct HomeView: View {
     }
 }
 
-// هذي كلاس جديد تابع للترتيب لازم اعدل عليها بالتنسيق
 
 struct PlantRow: View {
     var plant: Plant
     var toggleWatered: (Plant) -> Void
     
     var body: some View {
+        
         HStack {
-            Button(action: {
-                toggleWatered(plant)
-            }) {
-                Image(systemName: plant.isWatered ? "checkmark.circle.fill" : "circle")
-                    .resizable()
-                    .frame(width: 20, height: 20)
-                    .foregroundColor(plant.isWatered ? .c1 : .gray)
-
+            
+            HStack {
+                Button(action: {
+                    toggleWatered(plant)
+                }) {
+                    Image(systemName: plant.isWatered ? "checkmark.circle.fill" : "circle")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(plant.isWatered ? .c1 : .gray)
+                }
+                .buttonStyle(PlainButtonStyle())
             }
-            .buttonStyle(PlainButtonStyle())
+            
             VStack(alignment: .leading) {
                 HStack{
                     Image(systemName: "location")
                         .foregroundColor(.gray)
-                        
+                    
                     Text("in \(plant.room)")
-                      //  .font(.subheadline)
-                    .foregroundColor(.gray)
-                    .font(.system(size: 15, weight: .light))
-                      }
-                // هنا لازم اعدل يروح يمين شوي 
+                        .foregroundColor(.gray)
+                        .font(.system(size: 15, weight: .light))
+                }
+                // هنا لازم اعدل يروح يمين شوي
                 Text(plant.name)
                     .font(.system(size: 28, weight: .bold))
+                    .foregroundColor(plant.isWatered ? .gray : .primary)
                 
                 HStack {
-                    Label(plant.sunlight, systemImage: "sun.max")
+                    Label(plant.sunlight.rawValue, systemImage: plant.sunlight.icon())
                         .font(.system(size: 14, weight: .light))
                         .padding(4)
-                        .foregroundColor(Color.c3)
+                        .foregroundColor(plant.isWatered ? .gray : Color.c3)
                         .background(Color.gray.opacity(0.2))
                         .cornerRadius(9)
                     Label(plant.waterAmount, systemImage: "drop")
                         .font(.system(size: 14, weight: .light))
                         .padding(4)
-                        .foregroundColor(Color.c4)
+                        .foregroundColor(plant.isWatered ? .gray : Color.c4)
                         .background(Color.gray.opacity(0.2))
                         .cornerRadius(9)
                 }
             }
             Spacer()
-
+            
         }
     }
+
+  
 }
+
+
 #Preview {
     HomeView()
 }
