@@ -1,6 +1,6 @@
 # plant App 🌱
 
-![Beige Feminine Personal LinkedIn Banner](https://github.com/Shaden03/WebProject/assets/116809090/023a544c-885a-4708-a3bd-3f4d4352d5b6) 
+![Beige Feminine Personal LinkedIn Banner]() 
 
 The Plant App is designed to help users take better care of their plants. It provides a customizable reminder system that allows users to set regular notifications for watering and feeding their plants, ensuring they receive the proper care on time.
 
@@ -48,7 +48,7 @@ The Plant App is designed to help users take better care of their plants. It pro
 </p>
 
 ## References <a name="references"></a>
-* [YouTube Tutorial: Building a Node.js & Express REST API](https://www.youtube.com/watch?v=BDo1lgaZuII)
+* []()
 * 
 ---
 
