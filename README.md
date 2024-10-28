@@ -5,10 +5,6 @@
 The Plant App is designed to help users take better care of their plants. It provides a customizable reminder system that allows users to set regular notifications for watering and feeding their plants, ensuring they receive the proper care on time.
 
 
-UI  ![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 10 57 53](https://github.com/user-attachments/assets/7a02100b-3c44-4160-a485-d8bc1a9b2505) 
-![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 13 45 21](https://github.com/user-attachments/assets/9afa6770-e9e1-4f60-892f-6588f86bc196)
-
-
 ## Key Features
 
 - **Add New Plants**: Users can add their houseplants to the app, including details like the room, water amount, and required sunlight level.
@@ -23,6 +19,10 @@ UI  ![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 10 57 53](https://git
 - **SwiftData**: For local data management, storing plant and reminder information on the device.
 - **MVVM Architecture**: Ensures a clean separation between data logic and the user interface, making the code easier to manage and scale.
 
+## Tools <a name="tools"></a>
+* Sketch
+* Xcode
+* Github
 
 ## How to Use
 
@@ -30,6 +30,15 @@ UI  ![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 10 57 53](https://git
 2. **Update Plant Status**: After watering a plant, mark it as "Watered" using the checkmark to easily keep track of plants that need watering.
 3. **Customize Sunlight Reminders**: Choose the appropriate sunlight type for each plant based on its requirements, helping users create the ideal environment for growth.
 
+## App Demo
+
+## App Interfaces <a name="App-interfaces"></a>
+
+ ![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 10 57 53](https://github.com/user-attachments/assets/7a02100b-3c44-4160-a485-d8bc1a9b2505) 
+![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 13 45 21](https://github.com/user-attachments/assets/9afa6770-e9e1-4f60-892f-6588f86bc196)
+## References <a name="references"></a>
+* [YouTube Tutorial: Building a Node.js & Express REST API](https://www.youtube.com/watch?v=BDo1lgaZuII)
+* 
 ---
 
 This app is designed to make plant care simple and enjoyable for users, helping them keep their plants healthy and thriving. 🌼🌿
