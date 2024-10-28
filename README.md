@@ -34,11 +34,17 @@ The Plant App is designed to help users take better care of their plants. It pro
 
 ## App Interfaces <a name="App-interfaces"></a>
 
-
 <p align="center">
   <img src="https://github.com/user-attachments/assets/b29b2b60-e1bc-43e0-87be-5ee8e6f79306" alt="Image 1" width="200"/>
-  <img src="" alt="Image 2" width="200"/>
-  <img src="" alt="Image 3" width="200"/>
+  <img src="https://github.com/user-attachments/assets/810c6a0f-caf9-45d0-bb45-07646ceae069" alt="Image 2" width="200"/>
+  <img src="https://github.com/user-attachments/assets/1b07cfdd-1996-4358-81d6-bf7c7ae652ce" alt="Image 3" width="200"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5f4a0646-cfc5-4b84-949f-5754b2a64683" alt="Image 1" width="200"/>
+  <img src="https://github.com/user-attachments/assets/e1e8a835-4bde-47f8-9985-0c86de7d9155" alt="Image 2" width="200"/>
+  <img src="https://github.com/user-attachments/assets/cce141e8-6093-42bc-aa14-5aec067defb2" alt="Image 3" width="200"/>
+  <img src="https://github.com/user-attachments/assets/b8ab0e26-daf9-48f6-8a20-2961e485d534" alt="Image 3" width="200"/>
 </p>
 
 ## References <a name="references"></a>
