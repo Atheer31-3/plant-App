@@ -34,11 +34,11 @@ The Plant App is designed to help users take better care of their plants. It pro
 
 ## App Interfaces <a name="App-interfaces"></a>
 
-![(https://github.com/Atheer31-3/plant-App/blob/main/plant/plant/Assets.xcassets/plantImage.imageset/GST%20DACAR%20121-02%20%5BConverted%5D.png)](https://github.com/Atheer31-3/plant-App/tree/main/plant/plant/Assets.xcassets/plantImage.imageset)
+
 <p align="center">
-  <img src="[(https://github.com/Atheer31-3/plant-App/blob/main/plant/plant/Assets.xcassets/plantImage.imageset/GST%20DACAR%20121-02%20%5BConverted%5D.png)](https://github.com/Atheer31-3/plant-App/tree/main/plant/plant/Assets.xcassets/plantImage.imageset)" alt="p1" width="200"/>
-  <img src="(https://github.com/user-attachments/assets/0d3be7bc-d2bc-4ee4-9633-28092a7ae6e0)" alt="Image 2" width="200"/>
-  <img src="(https://github.com/user-attachments/assets/0d3be7bc-d2bc-4ee4-9633-28092a7ae6e0)" alt="Image 3" width="200"/>
+  <img src="https://github.com/user-attachments/assets/b29b2b60-e1bc-43e0-87be-5ee8e6f79306" alt="Image 1" width="200"/>
+  <img src="" alt="Image 2" width="200"/>
+  <img src="" alt="Image 3" width="200"/>
 </p>
 
 ## References <a name="references"></a>
