@@ -36,7 +36,7 @@ The Plant App is designed to help users take better care of their plants. It pro
 
 
 <p align="center">
-  <img src="[(https://github.com/user-attachments/assets/0d3be7bc-d2bc-4ee4-9633-28092a7ae6e0)](https://github.com/Atheer31-3/plant-App/blob/main/plant/plant/Assets.xcassets/plantImage.imageset/GST%20DACAR%20121-02%20%5BConverted%5D.png)" alt="p1" width="200"/>
+  <img src="(https://github.com/Atheer31-3/plant-App/blob/main/plant/plant/Assets.xcassets/plantImage.imageset/GST%20DACAR%20121-02%20%5BConverted%5D.png)" alt="p1" width="200"/>
   <img src="(https://github.com/user-attachments/assets/0d3be7bc-d2bc-4ee4-9633-28092a7ae6e0)" alt="Image 2" width="200"/>
   <img src="(https://github.com/user-attachments/assets/0d3be7bc-d2bc-4ee4-9633-28092a7ae6e0)" alt="Image 3" width="200"/>
 </p>
