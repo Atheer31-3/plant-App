@@ -33,9 +33,14 @@ The Plant App is designed to help users take better care of their plants. It pro
 ## App Demo
 
 ## App Interfaces <a name="App-interfaces"></a>
+![page1](https://github.com/user-attachments/assets/0d3be7bc-d2bc-4ee4-9633-28092a7ae6e0)
 
- ![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 10 57 53](https://github.com/user-attachments/assets/7a02100b-3c44-4160-a485-d8bc1a9b2505) 
-![Simulator Screenshot - iPhone 16 Pro - 2024-10-24 at 13 45 21](https://github.com/user-attachments/assets/9afa6770-e9e1-4f60-892f-6588f86bc196)
+<p align="center">
+  <img src="" alt="![page1](https://github.com/user-attachments/assets/0d3be7bc-d2bc-4ee4-9633-28092a7ae6e0)" width="200"/>
+  <img src="URL_of_Image2" alt="Image 2" width="200"/>
+  <img src="URL_of_Image3" alt="Image 3" width="200"/>
+</p>
+
 ## References <a name="references"></a>
 * [YouTube Tutorial: Building a Node.js & Express REST API](https://www.youtube.com/watch?v=BDo1lgaZuII)
 * 
