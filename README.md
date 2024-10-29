@@ -33,7 +33,7 @@ The Plant App is designed to help users take better care of their plants. It pro
 
 ## App Demo
 
-## App Interfaces <a name="App-interfaces"></a>
+## Design <a name="App-Design"></a>
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/b29b2b60-e1bc-43e0-87be-5ee8e6f79306" alt="Image 1" width="200"/>
@@ -49,8 +49,9 @@ The Plant App is designed to help users take better care of their plants. It pro
 </p>
 
 ## References <a name="references"></a>
-* []()
-* 
+* [SwiftData](https://www.hackingwithswift.com/books/ios-swiftui/introduction-to-swiftdata-and-swiftui)
+* [enum](https://www.hackingwithswift.com/read/0/14/enumerations)
+* [youtube tutorial: ](https://www.youtube.com/watch?v=EPdivac0kwE)
 ---
 
 This app is designed to make plant care simple and enjoyable for users, helping them keep their plants healthy and thriving. 🌼🌿
