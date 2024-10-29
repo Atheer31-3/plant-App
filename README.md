@@ -1,7 +1,6 @@
 # plant App 🌱
 
-![Beige Feminine Personal LinkedIn Banner](![Uploading UI.png…]()
-)
+![Beige Feminine Personal LinkedIn Banner](<img width="974" alt="UI" src="https://github.com/user-attachments/assets/70c03be4-5582-40c1-a93d-09455a4cb99e">)
 
 The Plant App is designed to help users take better care of their plants. It provides a customizable reminder system that allows users to set regular notifications for watering and feeding their plants, ensuring they receive the proper care on time.
 
