@@ -53,5 +53,11 @@ The Plant App is designed to help users take better care of their plants. It pro
 * [enum](https://www.hackingwithswift.com/read/0/14/enumerations)
 * [youtube tutorial: ](https://www.youtube.com/watch?v=EPdivac0kwE)
 ---
+## 📬 Contact
+
+For any questions, feedback, or collaboration opportunities, feel free to reach out to us:
+
+- 📧 **Email:** Atheer31.2001@gmail.com  
+- 💼 **GitHub:** Atheer31-3
 
 This app is designed to make plant care simple and enjoyable for users, helping them keep their plants healthy and thriving. 🌼🌿
